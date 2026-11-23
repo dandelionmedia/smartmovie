@@ -187,6 +187,7 @@ body{
 </main>
 <footer class="footer"><div class="wrap">AI콘텐츠마케팅연구소 · 유쌤클래스 | 교육용 스마트폰 영상 촬영 실습실<br/>강사: 김유성 · 영상 사례로 이해하는 촬영 기법</div></footer>
 <button class="backtop" id="backtop" type="button" aria-label="페이지 맨 위로 이동">↑ 맨위</button>
+<div id="video-zoom-backdrop" class="video-zoom-backdrop" hidden aria-hidden="true"></div>
 <script>
 'use strict';
 const lessons=[
@@ -242,5 +243,4 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('video-box').data
 
 const topBtn=$('backtop');window.addEventListener('scroll',()=>{topBtn.classList.toggle('show',window.scrollY>450)},{passive:true});topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'}));render();
 </script>
-<div id="video-zoom-backdrop" class="video-zoom-backdrop" hidden aria-hidden="true"></div>
 </body></html>
