@@ -243,7 +243,21 @@ $('topics').addEventListener('click',e=>{const b=e.target.closest('[data-topic]'
 $('overview-grid').addEventListener('click',e=>{const b=e.target.closest('[data-overview]');if(!b)return;showItem(Number(b.dataset.overview));});
 
 const videoSizeControls=$('video-size-controls'),videoBackdrop=$('video-zoom-backdrop');
-function setVideoSize(size){const z=Number(size);if(![1,2,3].includes(z))return;const box=$('video-box');if(z!==1&&!box.querySelector('.video-close')){const close=document.createElement('button');close.type='button';close.className='video-close';close.setAttribute('aria-label','확대 영상 닫기');close.title='확대 영상 닫기';close.textContent='×';box.appendChild(close);}box.classList.toggle('video-expanded',z!==1);box.classList.toggle('video-zoom-2',z===2);box.classList.toggle('video-zoom-3',z===3);box.dataset.videoZoom=String(z);videoSizeControls.classList.toggle('is-expanded',z!==1);document.body.classList.toggle('video-zoom-open',z!==1);videoBackdrop.hidden=z===1;videoSizeControls.querySelectorAll('[data-video-size]').forEach(btn=>{const selected=Number(btn.dataset.videoSize)===z;btn.classList.toggle('active',selected);btn.setAttribute('aria-pressed',String(selected));});}
+const videoZoomHome=document.createComment('video player original position');
+const videoControlsHome=document.createComment('video controls original position');
+$('video-box').parentNode.insertBefore(videoZoomHome,$('video-box'));
+videoSizeControls.parentNode.insertBefore(videoControlsHome,videoSizeControls);
+function portalVideoToTop(enabled){
+ const box=$('video-box');
+ if(enabled){
+   if(box.parentNode!==document.body)document.body.appendChild(box);
+   if(videoSizeControls.parentNode!==document.body)document.body.appendChild(videoSizeControls);
+ }else{
+   if(videoZoomHome.parentNode&&box.parentNode!==videoZoomHome.parentNode)videoZoomHome.parentNode.insertBefore(box,videoZoomHome.nextSibling);
+   if(videoControlsHome.parentNode&&videoSizeControls.parentNode!==videoControlsHome.parentNode)videoControlsHome.parentNode.insertBefore(videoSizeControls,videoControlsHome.nextSibling);
+ }
+}
+function setVideoSize(size){const z=Number(size);if(![1,2,3].includes(z))return;const box=$('video-box');if(z!==1&&!box.querySelector('.video-close')){const close=document.createElement('button');close.type='button';close.className='video-close';close.setAttribute('aria-label','확대 영상 닫기');close.title='확대 영상 닫기';close.textContent='×';box.appendChild(close);}box.classList.toggle('video-expanded',z!==1);box.classList.toggle('video-zoom-2',z===2);box.classList.toggle('video-zoom-3',z===3);box.dataset.videoZoom=String(z);portalVideoToTop(z!==1);videoSizeControls.classList.toggle('is-expanded',z!==1);document.body.classList.toggle('video-zoom-open',z!==1);videoBackdrop.hidden=z===1;videoSizeControls.querySelectorAll('[data-video-size]').forEach(btn=>{const selected=Number(btn.dataset.videoSize)===z;btn.classList.toggle('active',selected);btn.setAttribute('aria-pressed',String(selected));});}
 videoSizeControls.addEventListener('click',e=>{const b=e.target.closest('[data-video-size]');if(b)setVideoSize(b.dataset.videoSize);});
 videoBackdrop.addEventListener('click',()=>setVideoSize(1));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('video-box').dataset.videoZoom!=='1')setVideoSize(1);});
@@ -3186,5 +3200,12 @@ border:1px solid rgba(194,207,217,.29);box-shadow:0 34px 80px #0006,0 8px 22px #
 @media(prefers-reduced-motion:reduce){
  .topic-btn,.overview-card,.overview-photo img,.video-size-btn{transition:none!important}
 }
+</style>
+<style>
+/* Prevent stacking-context clipping: expanded player is portaled to body. */
+body>.video-box.video-expanded{position:fixed!important;z-index:100002!important;inset:auto!important;top:50%!important;left:50%!important;transform:translate(-50%,-50%)!important;display:block!important;max-height:calc(100dvh - 95px)!important;height:auto!important;aspect-ratio:16/9!important;overflow:hidden!important;background:#060a11}
+body>.video-box.video-expanded iframe{display:block!important;width:100%!important;height:100%!important}
+body>.video-size-controls.is-expanded{position:fixed!important;z-index:100003!important}
+body.video-zoom-open .video-zoom-backdrop:not([hidden]){position:fixed!important;inset:0!important;z-index:100001!important;background:rgba(4,7,12,.92)!important}
 </style>
 </body></html>
