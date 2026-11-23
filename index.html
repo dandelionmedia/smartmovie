@@ -80,11 +80,105 @@
 .video-size-controls.is-expanded{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:110;background:#152435;border:1px solid #6b7d8d;border-radius:12px;padding:8px 12px;box-shadow:0 7px 26px #0008;width:max-content;max-width:calc(100vw - 18px);justify-content:center}
 body.video-zoom-open{overflow:hidden}
 @media(max-width:550px){.video-size-controls{gap:6px}.video-size-btn{padding:6px 9px;font-size:13px}.video-size-label{font-size:13px}.video-size-controls.is-expanded{flex-wrap:wrap}.video-box.video-expanded{border-radius:8px}}
+
+/* PREMIUM FILM STUDIO — 2026 editorial design refresh */
+:root{
+ --bg:#090d14;--panel:#111923;--panel2:#17212d;--line:#3b4855;
+ --text:#f7f5f1;--muted:#b6c2ce;--accent:#d7b979;--cyan:#b2cbd9;
+ --radius:22px;--shadow:0 28px 64px rgba(0,0,0,.3)
+}
+html{scroll-padding-top:94px}
+body{
+ background:radial-gradient(ellipse 68% 23% at 76% 2%,rgba(125,106,76,.18),transparent 76%),
+ linear-gradient(180deg,#101824 0%,#090d14 49%,#0b111a 100%);
+ color:var(--text);font-size:18px;letter-spacing:-.015em
+}
+::selection{background:#c5a46d;color:#10151b}
+.wrap{max-width:1520px;padding-inline:clamp(16px,2.5vw,40px)}
+.mast{background:rgba(10,15,22,.88);border-bottom:1px solid rgba(216,187,131,.21);box-shadow:0 10px 42px rgba(0,0,0,.15)}
+.mast-inner{min-height:82px}.brand{font-size:20px;letter-spacing:.01em}
+.brand-icon{border-radius:12px;background:linear-gradient(145deg,#f0d6a1,#b38c4e);color:#18202b;box-shadow:0 5px 23px rgba(193,149,79,.18)}
+.topnote{font-size:14px;color:#aeb9c2;letter-spacing:.04em}
+.hero{padding:clamp(52px,6vw,98px) 0 clamp(44px,5vw,70px);isolation:isolate}
+.hero:before{content:"";position:absolute;inset:20px -1% 16px 53%;pointer-events:none;z-index:-1;opacity:.4;
+ background:repeating-linear-gradient(90deg,transparent 0 59px,rgba(210,192,151,.07) 60px 61px),radial-gradient(ellipse at center,rgba(169,126,66,.14),transparent 70%);mask-image:linear-gradient(90deg,transparent,#000)}
+.eyebrow{color:#dbba7f;font-weight:800;font-size:13px;letter-spacing:.2em}
+.hero h1{font-size:clamp(41px,5.3vw,82px);line-height:1.14;letter-spacing:-.06em;margin:20px 0 22px;text-wrap:balance}
+.hero h1 em{color:#e0bf83;text-shadow:0 12px 34px rgba(176,129,57,.17)}
+.hero p{font-size:clamp(18px,1.75vw,24px);max-width:850px;color:#c7d0d8;line-height:1.8}
+.hero-meta{gap:10px;margin-top:32px}
+.chip{background:rgba(26,36,47,.78);border:1px solid #48505b;color:#e3dfd5;padding:8px 17px;font-size:14px;font-weight:700}
+.section-heading h2{font-weight:850;letter-spacing:-.045em}
+.section-heading p{color:#b4c0cc;font-size:16px}
+.topics{gap:16px;margin-bottom:34px}
+.topic-btn{background:linear-gradient(145deg,rgba(33,44,56,.96),rgba(17,25,35,.98));border:1px solid #485564;
+ border-radius:20px;min-height:160px;padding:25px;box-shadow:0 17px 30px rgba(0,0,0,.14);transition:transform .22s,border-color .22s,background .22s,box-shadow .22s}
+.topic-btn:before{content:"";position:absolute;left:25px;right:25px;top:0;height:2px;background:linear-gradient(90deg,transparent,#d7b979,transparent);opacity:.23}
+.topic-btn:hover{transform:translateY(-4px);border-color:#b39a6f;box-shadow:0 22px 40px rgba(0,0,0,.3)}
+.topic-btn.active{border:1px solid #d7b979;background:linear-gradient(148deg,#38352c,#1b2834 85%);box-shadow:inset 0 0 0 1px rgba(245,219,164,.17),0 17px 38px rgba(0,0,0,.24)}
+.topic-btn.active:before{opacity:1}
+.topic-num{color:#e9ca91;letter-spacing:.13em;font-size:13px}
+.topic-btn strong{font-size:clamp(22px,2.05vw,30px);letter-spacing:-.04em}
+.topic-btn small,.topic-btn .count{color:#becbd5}
+.workbench{background:linear-gradient(160deg,#151f2b,#0d151f 65%);border:1px solid #435160;border-radius:25px;padding:clamp(17px,2.4vw,34px);box-shadow:0 30px 64px rgba(0,0,0,.23)}
+.topic-heading{border-bottom:1px solid rgba(203,191,167,.19);padding-bottom:20px;margin-bottom:24px}
+.topic-heading h2{font-size:clamp(28px,3vw,44px);letter-spacing:-.05em}
+.topic-heading p{color:#c6cfd7}
+.workgrid{column-gap:clamp(18px,2vw,30px)}
+.lesson-choice-panel .overview-head{margin-bottom:18px}
+.lesson-choice-panel .overview-title{font-size:clamp(22px,2.3vw,32px);letter-spacing:-.045em}
+.lesson-choice-panel .overview-grid{gap:12px}
+.overview-card{background:#1a2633;border:1px solid #4b5969;border-radius:15px;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:transform .2s,border-color .2s,box-shadow .2s}
+.overview-card:hover{transform:translateY(-3px);border-color:#c4a46b;box-shadow:0 14px 29px rgba(0,0,0,.3)}
+.overview-card.active{border:2px solid #e0bd7e;background:#27313c;box-shadow:0 0 0 3px rgba(205,171,113,.1),0 12px 26px rgba(0,0,0,.22)}
+.overview-photo{background:#0a131c}.overview-photo img{transition:transform .5s ease,filter .3s ease}
+.overview-card:hover .overview-photo img{transform:scale(1.035)}
+.overview-code{background:rgba(8,15,23,.88);border:1px solid rgba(230,207,154,.35);color:#e9d19e;letter-spacing:.06em}
+.lesson-choice-panel .overview-body{padding:12px 13px 14px}
+.lesson-choice-panel .overview-body strong{font-size:17px;line-height:1.4}
+.lesson-choice-panel .overview-body small{color:#bfcbd3;font-size:13px}
+.overview-tip{color:#aebdc8!important}
+.workgrid>.video-section{border-top:0;padding-top:0}
+.workgrid>.video-section .section-heading h2{font-size:clamp(23px,2.15vw,31px);letter-spacing:-.04em}
+.video-box{background:#070b10;border:1px solid #667382;border-radius:15px;box-shadow:0 20px 38px rgba(0,0,0,.34)}
+.play-panel{background-color:#070f17}.play-panel strong{text-shadow:0 2px 18px #000}
+.play-icon{background:#e64443;border:4px solid rgba(255,255,255,.88);box-shadow:0 0 0 9px rgba(255,255,255,.12),0 12px 28px #000a}
+.video-aside h3{font-weight:850;letter-spacing:-.03em}
+.video-aside p,.smallprint{color:#b5c4ce}
+.outline-link{background:#263744;border-color:#768999;border-radius:10px;color:#f2f6fa;transition:background .2s,border-color .2s}
+.outline-link:hover{background:#344b5d;border-color:#d0b17b}
+.video-size-controls{gap:8px;margin-bottom:16px}.video-size-label{color:#e3d4b4}
+.video-size-btn{background:#202c39;color:#eff2f4;border-color:#697583;padding:9px 14px;border-radius:10px}
+.video-size-btn.active{background:linear-gradient(135deg,#e5c990,#c9a568);border-color:#e5c990;color:#1a222b}
+.learn-detail{background:#131e29;border:1px solid #485769;border-radius:18px;box-shadow:0 12px 25px rgba(0,0,0,.12)}
+.learn-code{background:#d9ba7c;color:#14202d}
+.learn-detail-head{border-color:#42515f}
+.learn-detail-head h3{letter-spacing:-.04em}
+.learn-fact{background:#1a2734;border:1px solid #435566;border-radius:13px}
+.learn-fact h4{color:#e2c18a}
+.learn-fact p{color:#e8eef1}
+.compare{padding-top:74px}.compare-grid{gap:16px}
+.compare-card{background:linear-gradient(155deg,#1b2936,#111b26);border:1px solid #445463;border-radius:17px;padding:26px;box-shadow:0 16px 30px #0002}
+.compare-card .symbol{color:#dcbd85}.compare-card h3{letter-spacing:-.04em}
+.footer{border-color:#3a4652;color:#afb9c3}
+.backtop{background:#dabb80;border-color:#f0d8a8;color:#111922;border-radius:12px;box-shadow:0 12px 25px #0007}
+:focus-visible{outline:3px solid #efd49d;outline-offset:3px}
+@media(max-width:900px){.hero:before{inset:12px 0 20px 15%;opacity:.2}.workgrid>.video-section{position:static}}
+@media(max-width:720px){
+ .hero{padding:46px 0 38px}.hero h1{font-size:clamp(37px,9vw,55px);letter-spacing:-.055em}
+ .topics{gap:12px}.topic-btn{min-height:104px;padding:18px}.topic-btn:before{left:18px;right:18px}
+ .workbench{border-radius:19px}.overview-card{border-radius:12px}
+ .lesson-choice-panel .overview-body{padding:10px}
+ .lesson-choice-panel .overview-body strong{font-size:15px}
+ .lesson-choice-panel .overview-body small{font-size:12px}
+ .compare{padding-top:44px}
+}
+@media(prefers-reduced-motion:reduce){.overview-photo img,.topic-btn,.overview-card{transition:none!important}}
 </style>
 </head>
 <body>
-<header class="mast"><div class="wrap mast-inner"><a href="#top" class="brand"><span class="brand-icon" aria-hidden="true">▣</span><span>유쌤클래스 <span style="color:var(--accent)">FILM LAB</span></span></a><span class="topnote">AI콘텐츠마케팅연구소 · 스마트폰 촬영 현장 실습</span></div></header>
-<main id="top"><section class="hero wrap"><div class="eyebrow">● SMARTPHONE CINEMATOGRAPHY CLASS</div><h1>스마트폰으로 시작하는<br/><em>나의 첫 영상감독 수업</em></h1><p>같은 일상, 다른 화면. <strong>샷의 크기 · 카메라 앵글 · 카메라 움직임</strong>을 사진과 영상으로 차분히 살펴보세요.</p><div class="hero-meta"><span class="chip">📱 스마트폰 실습</span><span class="chip">🎥 3가지 핵심 촬영 기법</span><span class="chip">▶ 실제 예제 영상 26개</span></div></section>
+<header class="mast"><div class="wrap mast-inner"><a href="#top" class="brand"><span class="brand-icon" aria-hidden="true">◈</span><span>유쌤클래스 <span style="color:var(--accent)">FILM LAB</span></span></a><span class="topnote">AI콘텐츠마케팅연구소 · CINEMATOGRAPHY MASTERCLASS</span></div></header>
+<main id="top"><section class="hero wrap"><div class="eyebrow">◈ THE ART OF SMARTPHONE CINEMATOGRAPHY</div><h1>스마트폰으로 시작하는<br/><em>나의 첫 영상감독 수업</em></h1><p>같은 일상, 다른 화면. <strong>샷의 크기 · 카메라 앵글 · 카메라 움직임</strong>을 사진과 영상으로 차분히 살펴보세요.</p><div class="hero-meta"><span class="chip">📱 스마트폰 실습</span><span class="chip">🎥 3가지 핵심 촬영 기법</span><span class="chip">▶ 실제 예제 영상 26개</span></div></section>
 <section class="wrap" aria-label="촬영 기법 선택"><div class="section-heading"><h2>01. 촬영 기법을 선택하세요</h2><p>아래 주제를 누르면 교육 내용이 바뀝니다.</p></div><nav class="topics" id="topics" aria-label="학습 주제"></nav></section>
 
 
